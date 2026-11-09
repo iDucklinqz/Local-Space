@@ -13,7 +13,7 @@
   </p>
 
   <p><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
-  <p><a href="#preview">Preview</a> · <a href="#what-you-can-do">Features</a> · <a href="#get-started">Get started</a> · <a href="#connect-your-ai-assistant">AI integration</a> · <a href="#development">Development</a></p>
+  <p><a href="#preview">Preview</a> · <a href="#what-you-can-do">Features</a> · <a href="https://github.com/iDucklinqz/Local-Space/releases/latest">Download</a> ? <a href="#get-started">Get started</a> · <a href="#connect-your-ai-assistant">AI integration</a> · <a href="#development">Development</a></p>
 </div>
 
 ---
@@ -55,6 +55,12 @@ LocalSpace brings scattered project folders into one quiet workspace. Scan a dir
 The scanner recognizes markers including `.git`, `package.json`, `pom.xml`, `pyproject.toml`, `Cargo.toml`, and `go.mod`. It skips hidden folders, dependency and build directories, and symbolic links. Each scan is limited to **600 projects** and **10,000 visited directories**, with warnings when limits are reached.
 
 ## Get started
+
+### Download the Windows app
+
+Download **`LocalSpace-1.1.0-windows-x64.zip`** from [GitHub Releases](https://github.com/iDucklinqz/Local-Space/releases/latest), extract it, and run `LocalSpace.exe`. The portable package includes the application, usage notes, and the GPL v3 license.
+
+The app requires **Microsoft Edge WebView2 Runtime**. Node.js and Rust are not needed to use the desktop release. Source code and SHA-256 checksums are available alongside the download.
 
 ### Run the web version from source
 
