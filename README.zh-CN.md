@@ -13,7 +13,7 @@
   </p>
 
   <p><a href="README.md">English</a> · <strong>简体中文</strong></p>
-  <p><a href="#界面预览">界面预览</a> · <a href="#主要功能">主要功能</a> · <a href="#快速开始">快速开始</a> · <a href="#接入你的-ai-助手">AI 接入</a> · <a href="#开发与验证">开发与验证</a></p>
+  <p><a href="#界面预览">界面预览</a> · <a href="#主要功能">主要功能</a> · <a href="https://github.com/iDucklinqz/Local-Space/releases/latest">下载桌面版</a> · <a href="#快速开始">快速开始</a> · <a href="#接入你的-ai-助手">AI 接入</a> · <a href="#开发与验证">开发与验证</a></p>
 </div>
 
 ---
@@ -55,6 +55,12 @@
 扫描器通过 `.git`、`package.json`、`pom.xml`、`pyproject.toml`、`Cargo.toml`、`go.mod` 等标识识别项目，跳过隐藏目录、依赖目录、构建目录及符号链接。每次最多识别 **600 个项目**、访问 **10,000 个目录**，达到上限时会提示。
 
 ## 快速开始
+
+### 下载 Windows 桌面版
+
+在 [GitHub Releases](https://github.com/iDucklinqz/Local-Space/releases/latest) 下载 **`LocalSpace-1.1.0-windows-x64.zip`**，解压后运行 `LocalSpace.exe`。便携包内包含程序、使用说明和 GPL v3 协议。
+
+运行需要 **Microsoft Edge WebView2 Runtime**，无需安装 Node.js 或 Rust。发布页面同时提供对应源码和 SHA-256 校验文件。
 
 ### 从源码运行网页版本
 

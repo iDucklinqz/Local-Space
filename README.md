@@ -13,7 +13,7 @@
   </p>
 
   <p><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
-  <p><a href="#preview">Preview</a> · <a href="#what-you-can-do">Features</a> · <a href="https://github.com/iDucklinqz/Local-Space/releases/latest">Download</a> ? <a href="#get-started">Get started</a> · <a href="#connect-your-ai-assistant">AI integration</a> · <a href="#development">Development</a></p>
+  <p><a href="#preview">Preview</a> · <a href="#what-you-can-do">Features</a> · <a href="https://github.com/iDucklinqz/Local-Space/releases/latest">Download</a> · <a href="#get-started">Get started</a> · <a href="#connect-your-ai-assistant">AI integration</a> · <a href="#development">Development</a></p>
 </div>
 
 ---
