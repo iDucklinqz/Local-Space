@@ -28,9 +28,9 @@ export async function openProject(directory, action) {
     child.once('spawn', () => { child.unref(); resolve(); });
   });
 }
-export async function chooseDirectory() {
+export async function chooseDirectory(locale = 'zh-CN') {
   if (process.platform !== 'win32') throw new AppError('当前系统请直接填写目录的完整路径。');
-  const script = `$ErrorActionPreference = 'Stop'; [Console]::OutputEncoding = [Text.UTF8Encoding]::new(); Add-Type -AssemblyName System.Windows.Forms; $dialog = [Windows.Forms.FolderBrowserDialog]::new(); $dialog.Description = '选择要扫描或添加的项目目录'; $dialog.ShowNewFolderButton = $false; $owner = [Windows.Forms.Form]::new(); $owner.TopMost = $true; $owner.StartPosition = 'CenterScreen'; if ($dialog.ShowDialog($owner) -eq [Windows.Forms.DialogResult]::OK) { [Console]::Write($dialog.SelectedPath) }; $dialog.Dispose(); $owner.Dispose()`;
+  const script = `$ErrorActionPreference = 'Stop'; [Console]::OutputEncoding = [Text.UTF8Encoding]::new(); Add-Type -AssemblyName System.Windows.Forms; $dialog = [Windows.Forms.FolderBrowserDialog]::new(); $dialog.Description = '${locale === 'en' ? 'Choose a project folder to scan or add' : '选择要扫描或添加的项目目录'}'; $dialog.ShowNewFolderButton = $false; $owner = [Windows.Forms.Form]::new(); $owner.TopMost = $true; $owner.StartPosition = 'CenterScreen'; if ($dialog.ShowDialog($owner) -eq [Windows.Forms.DialogResult]::OK) { [Console]::Write($dialog.SelectedPath) }; $dialog.Dispose(); $owner.Dispose()`;
   try {
     const { stdout } = await promisify(execFile)('powershell.exe', ['-NoProfile', '-STA', '-EncodedCommand', Buffer.from(script, 'utf16le').toString('base64')], { windowsHide: true, timeout: 180_000, encoding: 'utf8', maxBuffer: 16_000 });
     return stdout.trim();

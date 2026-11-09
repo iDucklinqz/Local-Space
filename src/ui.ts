@@ -1,7 +1,9 @@
+import { getLocale, t } from './i18n';
 export function escape(value: unknown): string {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!);
 }
 const paths: Record<string, string> = {
+  language: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a16 16 0 0 1 0 18 16 16 0 0 1 0-18Z"/>',
   grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
   star: '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/>',
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
@@ -47,15 +49,15 @@ export function icon(name: string, size = 20, className = ''): string {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon ${className}">${paths[name] || paths.box}</svg>`;
 }
 export function relativeTime(value: string | null): string {
-  if (!value) return '尚未打开';
+  if (!value) return t('尚未打开');
   const diff = Date.now() - new Date(value).getTime();
-  if (!Number.isFinite(diff)) return '未知时间';
+  if (!Number.isFinite(diff)) return t('未知时间');
   const minutes = Math.floor(Math.max(0, diff) / 60_000);
-  if (minutes < 1) return '刚刚';
-  if (minutes < 60) return `${minutes} 分钟前`;
-  if (minutes < 1440) return `${Math.floor(minutes / 60)} 小时前`;
+  if (minutes < 1) return t('刚刚');
+  if (minutes < 60) return t('{count} 分钟前', {count: minutes});
+  if (minutes < 1440) return t('{count} 小时前', {count: Math.floor(minutes / 60)});
   const days = Math.floor(minutes / 1440);
-  if (days < 30) return `${days} 天前`;
-  return new Intl.DateTimeFormat('zh-CN', { month: 'numeric', day: 'numeric' }).format(new Date(value));
+  if (days < 30) return t('{count} 天前', {count: days});
+  return new Intl.DateTimeFormat(getLocale(), { month: 'numeric', day: 'numeric' }).format(new Date(value));
 }
 export const categoryIcon: Record<string, string> = { frontend: 'code', backend: 'layers', tools: 'terminal', game: 'game', mobile: 'mobile', other: 'box' };

@@ -26,3 +26,6 @@ dialog{width:min(530px,calc(100vw - 32px));max-height:calc(100dvh - 50px);paddin
 .color-option>span{pointer-events:none}.category-badge{display:inline-flex;align-items:center;gap:5px;color:var(--tone-strong,var(--secondary));background:var(--tone-soft,var(--surface-hover));font-size:10px;padding:3px 6px;border-radius:4px}
 @media(pointer:coarse){.row-action{min-height:36px}.terminal-chevron{height:36px}.button{min-height:40px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.language-button{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:32px;padding:4px 6px;border-radius:6px;color:var(--secondary);font-size:11px;white-space:nowrap}.language-button:hover{background:var(--surface-hover);color:var(--text)}:root[lang="en"] .brand{gap:9px}:root[lang="en"] .brand strong{font-size:19px;letter-spacing:-.6px}:root[lang="en"] .sort-control{width:140px}
+@media(max-width:520px){:root[lang="en"] .page-heading{align-items:flex-start;flex-wrap:wrap;row-gap:14px}:root[lang="en"] .sort-control{width:110px}.topbar-actions{gap:8px}.language-button{padding:4px;gap:4px}}

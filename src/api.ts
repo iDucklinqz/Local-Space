@@ -1,3 +1,4 @@
+import { localizeMessage, t } from './i18n';
 import type { Workspace } from './types';
 let token = '';
 export async function request<T>(route: string, method = 'GET', payload?: unknown, signal?: AbortSignal): Promise<T> {
@@ -7,7 +8,7 @@ export async function request<T>(route: string, method = 'GET', payload?: unknow
     ...(payload === undefined ? {} : { body: JSON.stringify(payload) }),
   });
   const result = await response.json();
-  if (!response.ok) throw new Error(result.error || '操作未完成，请重试。');
+  if (!response.ok) throw new Error(localizeMessage(result.error || t('操作未完成，请重试。')));
   if (result.token) token = result.token;
   if (result.state?.token) token = result.state.token;
   return result;

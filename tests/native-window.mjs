@@ -17,7 +17,7 @@ const executable=path.resolve(process.env.LOCALSPACE_EXE||'release/LocalSpace.ex
 const environment={...process.env,LOCALAPPDATA:appData};delete environment.LOCALSPACE_DATA_DIR;
 const {stdout,stderr}=await promisify(execFile)(executable,['--verify-window','--port','0'],{cwd:workspace,env:environment,windowsHide:true,timeout:30_000,maxBuffer:1_000_000});
 const result=stdout.trim().split('\n').map(line=>{try{return JSON.parse(line)}catch{return null}}).find(line=>line?.nativeWindowRendered);
-assert.equal(result?.ok,true,stderr||stdout);assert.equal(result.title,'全部项目');assert.equal(result.rows,1);
+assert.equal(result?.ok,true,stderr||stdout);assert.ok(['en','zh-CN'].includes(result.locale));assert.equal(result.title,result.locale==='en'?'All projects':'全部项目');assert.equal(result.rows,1);
 const saved=JSON.parse(await readFile(path.join(appData,'LocalSpace/workspace.json'),'utf8'));
 assert.deepEqual(saved.projects,original.projects);
 assert.equal(await readFile(path.join(workspace,'.localspace/workspace.json'),'utf8'),legacy);

@@ -9,6 +9,7 @@
     <img alt="Windows x64" src="https://img.shields.io/badge/platform-Windows_x64-50759d?style=flat-square" />
     <img alt="Rust and TypeScript" src="https://img.shields.io/badge/built_with-Rust_%2B_TypeScript-b96148?style=flat-square" />
     <img alt="Local storage" src="https://img.shields.io/badge/storage-local_only-397c61?style=flat-square" />
+    <a href="LICENSE"><img alt="License: GPL v3" src="https://img.shields.io/badge/license-GPL_v3-84749e?style=flat-square" /></a>
   </p>
 
   <p><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
@@ -21,7 +22,7 @@ LocalSpace brings scattered project folders into one quiet workspace. Scan a dir
 
 **No account, cloud backend, or model API key is required.** The Windows desktop app bundles its interface and local service into one executable; Node.js is only needed for development and the optional web version.
 
-> **Interface language:** the current application UI is Simplified Chinese. This repository provides both English and Chinese documentation.
+> **Languages:** English and Simplified Chinese. The interface follows your system language on first launch. Switch with the language button in the top bar or **Settings → Interface language**; your choice is remembered on this device.
 
 ## Preview
 
@@ -118,7 +119,7 @@ npm run projects -- add "D:\Projects\my-app" --category frontend --url http://12
 
 Without an explicit `--url`, the Node.js CLI first attempts to discover a running desktop session, then falls back to the web service at port `4318`.
 
-See the [AI integration guide](AI-INTEGRATION.md) for argument handling, session discovery, HTTP endpoints, and error responses. The in-app **AI 接入** action also provides copyable instructions.
+See the [AI integration guide](AI-INTEGRATION.md) for argument handling, session discovery, HTTP endpoints, and error responses. The in-app **AI integration** action also provides copyable instructions.
 
 ## Your data stays local
 
@@ -154,6 +155,8 @@ The Vite UI runs at **http://127.0.0.1:5173** and proxies API requests to the lo
 | `npm run desktop:package` | Build and package the Windows x64 executable |
 | `npm test` | Run scanner, API, persistence, and request-isolation tests |
 | `npm run test:ui` | Run browser interactions, responsive layout, and accessibility checks |
+| `npm run test:i18n` | Verify language detection, switching, persistence, and translated workflows |
+| `npm run docs:screenshots` | Refresh English and Chinese README screenshots after building the frontend |
 | `npm run test:native` | Test the built native service and its browser UI |
 | `npm run test:native-window` | Verify the native WebView2 window and workspace migration |
 
@@ -164,6 +167,7 @@ npx playwright install chromium
 npm test
 npm run build
 npm run test:ui
+npm run test:i18n
 ```
 
 For native checks, build the desktop package first, then run `npm run test:native` and `npm run test:native-window` on Windows. `LOCALSPACE_CHROMIUM` can point to an existing compatible browser executable; `LOCALSPACE_EXE` can select a different native build.
@@ -189,3 +193,7 @@ Local-Space/
 Dependencies, build outputs, local workspace data, test artifacts, editor state, and local agent tooling are excluded through `.gitignore`. Source code, lockfiles, shared build configuration, and documentation assets are versioned.
 
 </details>
+
+## License
+
+LocalSpace is licensed under the **GNU General Public License v3.0 only** (`GPL-3.0-only`). See [LICENSE](LICENSE) for the complete terms. Desktop ZIP packages include a copy as `LICENSE.txt`.

@@ -46,9 +46,13 @@ pub fn open_project(directory: &str, action: &str) -> AppResult<()> {
     }
     Ok(())
 }
-pub fn choose_directory() -> String {
+pub fn choose_directory(english: bool) -> String {
     rfd::FileDialog::new()
-        .set_title("选择项目目录")
+        .set_title(if english {
+            "Choose a project folder"
+        } else {
+            "选择项目目录"
+        })
         .pick_folder()
         .map(|p| path_string(&p))
         .unwrap_or_default()

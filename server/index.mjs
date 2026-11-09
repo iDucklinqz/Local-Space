@@ -75,7 +75,7 @@ export async function createApplication({
     if (req.method === 'GET' && pathname === '/api/health') return send(res, 200, { ok: true, name: 'LocalSpace', version: '1.0.0' });
     if (req.method === 'GET' && pathname === '/api/projects') return send(res, 200, { projects: store.read().projects });
     if (req.method === 'GET' && pathname === '/api/categories') return send(res, 200, { categories: store.read().categories });
-    if (req.method === 'POST' && pathname === '/api/dialog/directory') return send(res, 200, { path: await chooseDirectory() });
+    if (req.method === 'POST' && pathname === '/api/dialog/directory') return send(res, 200, { path: await chooseDirectory((await body(req)).locale) });
     if (req.method === 'POST' && pathname === '/api/scan') {
       if (scanning) throw new AppError('已有扫描进行中，请稍后再试。', 409);
       const input = await body(req);

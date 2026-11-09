@@ -13,7 +13,9 @@
     "test:ui": "node tests/browser.mjs",
     "desktop:package": "node scripts/package-desktop.mjs",
     "test:native": "node tests/native.mjs",
-    "test:native-window": "node tests/native-window.mjs"
+    "test:native-window": "node tests/native-window.mjs",
+    "test:i18n": "node tests/i18n.mjs",
+    "docs:screenshots": "node scripts/capture-readme.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
@@ -24,5 +26,6 @@
   },
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "license": "GPL-3.0-only"
 }

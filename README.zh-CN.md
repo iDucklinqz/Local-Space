@@ -9,6 +9,7 @@
     <img alt="Windows x64" src="https://img.shields.io/badge/platform-Windows_x64-50759d?style=flat-square" />
     <img alt="Rust 与 TypeScript" src="https://img.shields.io/badge/built_with-Rust_%2B_TypeScript-b96148?style=flat-square" />
     <img alt="本地存储" src="https://img.shields.io/badge/storage-local_only-397c61?style=flat-square" />
+    <a href="LICENSE"><img alt="License: GPL v3" src="https://img.shields.io/badge/license-GPL_v3-84749e?style=flat-square" /></a>
   </p>
 
   <p><a href="README.md">English</a> · <strong>简体中文</strong></p>
@@ -21,14 +22,14 @@
 
 **无需账号、云端后端或模型 API Key。** Windows 桌面版将界面与本地服务打包进单个可执行文件；只有开发和使用可选的网页版本时才需要 Node.js。
 
-> **界面语言：**当前应用界面为简体中文，仓库同时提供英文和中文文档。
+> **界面语言：**支持 English 和简体中文，首次启动时跟随系统语言。可通过顶部语言按钮或 **设置 → 界面语言** 切换，选择会保存在当前设备。
 
 ## 界面预览
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/overview-dark.png" />
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/overview-light.png" />
-  <img src="docs/assets/overview-light.png" width="100%" alt="栖点项目列表：搜索、自定义分类、星标，以及文件夹和终端快捷入口。" />
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/overview-zh-CN-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/overview-zh-CN-light.png" />
+  <img src="docs/assets/overview-zh-CN-light.png" width="100%" alt="栖点项目列表：搜索、自定义分类、星标，以及文件夹和终端快捷入口。" />
 </picture>
 
 <p align="center"><sub>真实应用界面，使用虚构的演示项目。内置浅色与深色主题。</sub></p>
@@ -36,7 +37,7 @@
 <details>
 <summary>查看深色主题</summary>
 
-![栖点深色主题](docs/assets/overview-dark.png)
+![栖点深色主题](docs/assets/overview-zh-CN-dark.png)
 
 </details>
 
@@ -154,6 +155,8 @@ Vite 开发界面位于 **http://127.0.0.1:5173**，API 请求代理到 `4318` �
 | `npm run desktop:package` | 构建并打包 Windows x64 程序 |
 | `npm test` | 验证扫描、API、持久化与请求隔离 |
 | `npm run test:ui` | 浏览器交互、响应式布局与无障碍检查 |
+| `npm run test:i18n` | 验证语言识别、切换、偏好保存和翻译后的操作流程 |
+| `npm run docs:screenshots` | 构建前端后，更新中英文 README 截图 |
 | `npm run test:native` | 验证编译后的原生服务及其浏览器界面 |
 | `npm run test:native-window` | 验证原生 WebView2 窗口与工作台迁移 |
 
@@ -164,6 +167,7 @@ npx playwright install chromium
 npm test
 npm run build
 npm run test:ui
+npm run test:i18n
 ```
 
 原生验证需要先构建桌面包，再在 Windows 下运行 `npm run test:native` 和 `npm run test:native-window`。`LOCALSPACE_CHROMIUM` 可指定已有的兼容浏览器程序，`LOCALSPACE_EXE` 可指定其他原生构建。
@@ -189,3 +193,7 @@ Local-Space/
 依赖、构建产物、本地工作台数据、测试产物、编辑器状态和本地代理工具均由 `.gitignore` 排除。源码、锁文件、共享构建配置和文档素材纳入版本管理。
 
 </details>
+
+## 开源协议
+
+LocalSpace 采用 **GNU 通用公共许可证第 3 版**（仅限 v3，`GPL-3.0-only`）。完整条款见 [LICENSE](LICENSE)。桌面 ZIP 包内也附有协议副本 `LICENSE.txt`。

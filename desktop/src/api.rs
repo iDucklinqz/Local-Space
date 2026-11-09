@@ -84,7 +84,10 @@ impl NativeApp {
             };
         }
         if method == "POST" && route == "/api/dialog/directory" {
-            return Ok((200, json!({"path":system::choose_directory()})));
+            return Ok((
+                200,
+                json!({"path":system::choose_directory(input["locale"] == "en")}),
+            ));
         }
         if method == "POST" && route == "/api/scan" {
             if self.scanning.swap(true, Ordering::SeqCst) {

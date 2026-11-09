@@ -18,7 +18,7 @@ use tao::{
     window::{Icon, WindowBuilder},
 };
 use wry::{WebContext, WebViewBuilder, WebViewBuilderExtWindows};
-const TITLE: &str = "栖点 · 本地项目";
+const TITLE: &str = "LocalSpace";
 fn option(args: &[String], key: &str) -> Option<String> {
     args.windows(2)
         .find(|pair| pair[0] == key)
@@ -150,7 +150,7 @@ fn show_window(url: String, directory: PathBuf, owns_server: bool, verify: bool)
     let mut context = WebContext::new(Some(directory.join("WebView2")));
     let origin = url.clone();
     let verification_script = if verify {
-        r#"window.addEventListener('DOMContentLoaded',()=>{let count=0;const timer=setInterval(()=>{const search=document.querySelector('#project-search');if(search){clearInterval(timer);window.ipc.postMessage(JSON.stringify({ok:true,nativeWindowRendered:true,title:document.querySelector('h1')?.textContent,rows:document.querySelectorAll('.project-row').length}));}else if(++count>150){clearInterval(timer);window.ipc.postMessage(JSON.stringify({ok:false,error:'Native view did not finish loading'}));}},100);});"#
+        r#"window.addEventListener('DOMContentLoaded',()=>{let count=0;const timer=setInterval(()=>{const search=document.querySelector('#project-search');if(search){clearInterval(timer);window.ipc.postMessage(JSON.stringify({ok:true,nativeWindowRendered:true,locale:document.documentElement.lang,title:document.querySelector('h1')?.textContent,rows:document.querySelectorAll('.project-row').length}));}else if(++count>150){clearInterval(timer);window.ipc.postMessage(JSON.stringify({ok:false,error:'Native view did not finish loading'}));}},100);});"#
     } else {
         ""
     };
