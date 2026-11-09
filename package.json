@@ -1,0 +1,28 @@
+{
+  "name": "localspace",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "description": "栖点：极简本地项目管理，支持轻量原生 Windows 桌面程序和外部 AI 添加。",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc -b && vite build",
+    "start": "node server/index.mjs",
+    "projects": "node scripts/localspace.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:ui": "node tests/browser.mjs",
+    "desktop:package": "node scripts/package-desktop.mjs",
+    "test:native": "node tests/native.mjs",
+    "test:native-window": "node tests/native-window.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

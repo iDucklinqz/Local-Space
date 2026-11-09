@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">LocalSpace</title>
+  <desc id="description">A quiet home for your local projects. A minimal Windows workspace with local storage.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1280" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F8FA"/><stop offset="1" stop-color="#FFF5EF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="822" y1="68" x2="1164" y2="282" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E16A48"/><stop offset="1" stop-color="#C95035"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1278" height="338" rx="24" fill="url(#background)" stroke="#E8EBEF"/>
+  <rect x="64" y="56" width="54" height="54" rx="16" fill="#E16A48"/>
+  <g transform="translate(72 64) scale(.6)" stroke="white" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M16 20H31L36 26H48V48H16Z"/><path d="M16 29H48M26 37L31 42L40 32"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="135" y="89" fill="#626873" font-size="15" font-weight="600" letter-spacing="3">YOUR PROJECTS. YOUR SPACE.</text>
+    <text x="64" y="184" fill="#272A30" font-size="68" font-weight="700" letter-spacing="-3">LocalSpace</text>
+    <text x="67" y="228" fill="#626873" font-size="23">A quiet home for your local projects.</text>
+    <circle cx="72" cy="280" r="4" fill="#397C61"/>
+    <text x="85" y="285" fill="#626873" font-size="13" font-weight="600" letter-spacing="1.5">LOCAL FIRST</text>
+    <text x="220" y="285" fill="#B2B8C1" font-size="13">/</text>
+    <text x="245" y="285" fill="#626873" font-size="13" font-weight="600" letter-spacing="1.5">WINDOWS DESKTOP</text>
+  </g>
+  <circle cx="1037" cy="169" r="137" fill="#E16A48" fill-opacity=".055"/>
+  <rect x="856" y="72" width="316" height="194" rx="17" fill="white" stroke="#E8EBEF" transform="rotate(7 1014 169)"/>
+  <rect x="837" y="83" width="316" height="194" rx="17" fill="#FFFDFC" stroke="#E5DDD8" transform="rotate(-5 995 180)"/>
+  <rect x="829" y="82" width="316" height="194" rx="17" fill="white" stroke="#E8EBEF"/>
+  <path d="M829 99C829 89.611 836.611 82 846 82H1128C1137.39 82 1145 89.611 1145 99V119H829V99Z" fill="#F7F8FA"/>
+  <circle cx="849" cy="101" r="3.5" fill="#E5A48F"/><circle cx="862" cy="101" r="3.5" fill="#DCC99B"/><circle cx="875" cy="101" r="3.5" fill="#A6C7B4"/>
+  <rect x="848" y="137" width="35" height="35" rx="9" fill="#FFF0E9"/>
+  <path d="M858 147H865L868 151H875V163H858V147Z" stroke="#B96148" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="896" y="143" width="122" height="6" rx="3" fill="#424851"/><rect x="896" y="157" width="174" height="4" rx="2" fill="#E8EBEF"/>
+  <rect x="848" y="183" width="35" height="35" rx="9" fill="#EEF3F8"/>
+  <path d="M858 193H865L868 197H875V209H858V193Z" stroke="#50759D" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="896" y="189" width="97" height="6" rx="3" fill="#424851"/><rect x="896" y="203" width="148" height="4" rx="2" fill="#E8EBEF"/>
+  <rect x="848" y="237" width="198" height="4" rx="2" fill="#F0F2F5"/>
+  <circle cx="1123" cy="258" r="25" fill="url(#accent)"/>
+  <path d="M1113 258L1120 265L1133 251" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

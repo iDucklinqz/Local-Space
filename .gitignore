@@ -1,0 +1,40 @@
+# Installed dependencies and generated builds
+node_modules/
+dist/
+target/
+release/
+*.tsbuildinfo
+
+# Personal workspace data and verification artifacts
+.localspace/
+artifacts/
+playwright-report/
+test-results/
+coverage/
+
+# Local agent tooling and working design notes
+.agents/
+.codex/
+.claude/
+design-system/
+
+# Environment files and machine-specific overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor settings, caches, logs, and operating-system files
+.vscode/
+.idea/
+.history/
+.cache/
+*.log
+*.pid
+*.pid.lock
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini

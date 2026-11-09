@@ -1,0 +1,26 @@
+﻿import assert from 'node:assert/strict';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { mkdir, mkdtemp, writeFile, readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { defaultCategories } from '../server/store.mjs';
+
+const root=await mkdtemp(path.resolve('artifacts/native-window-'));
+const workspace=path.join(root,'workspace');const appData=path.join(root,'appdata');
+const project=path.join(workspace,'项目 & native');
+await mkdir(path.join(workspace,'.localspace'),{recursive:true});await mkdir(project,{recursive:true});
+const timestamp=new Date().toISOString();
+const original={version:1,categories:defaultCategories,settings:{roots:[root],maxDepth:3,terminal:'powershell'},projects:[{id:'native-window-test',name:'原生界面验证',path:project,description:'界面验证使用的本地项目',categoryId:'tools',tags:[],language:'项目',branch:'',updatedAt:timestamp,addedAt:timestamp,lastOpenedAt:null,starred:false,archived:false,source:'manual'}]};
+const legacy=JSON.stringify(original,null,2);
+await writeFile(path.join(workspace,'.localspace/workspace.json'),legacy);
+const executable=path.resolve(process.env.LOCALSPACE_EXE||'release/LocalSpace.exe');
+const environment={...process.env,LOCALAPPDATA:appData};delete environment.LOCALSPACE_DATA_DIR;
+const {stdout,stderr}=await promisify(execFile)(executable,['--verify-window','--port','0'],{cwd:workspace,env:environment,windowsHide:true,timeout:30_000,maxBuffer:1_000_000});
+const result=stdout.trim().split('\n').map(line=>{try{return JSON.parse(line)}catch{return null}}).find(line=>line?.nativeWindowRendered);
+assert.equal(result?.ok,true,stderr||stdout);assert.equal(result.title,'全部项目');assert.equal(result.rows,1);
+const saved=JSON.parse(await readFile(path.join(appData,'LocalSpace/workspace.json'),'utf8'));
+assert.deepEqual(saved.projects,original.projects);
+assert.equal(await readFile(path.join(workspace,'.localspace/workspace.json'),'utf8'),legacy);
+let sessionExists=true;try{await readFile(path.join(appData,'LocalSpace/session.json'))}catch{sessionExists=false}assert.equal(sessionExists,false);
+const report={...result,migrationPreservesOriginal:true,isolatedData:true,sessionCleanedOnExit:true,visibleWindow:false};
+await writeFile('artifacts/native-window-test.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
